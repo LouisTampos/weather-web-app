@@ -24,6 +24,15 @@ body {
     padding: 1rem 2.5rem;
 }
 
+.weatherIcon {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain;
+    display: block;
+    height: 25%;
+    margin: 2rem auto;
+}  
+
 .input-group {
     position: relative;
     display: flex;

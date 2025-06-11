@@ -35,12 +35,22 @@ function findUserLocation() {
                 alert(currentData.error.message);
                 return;
             }
+            
+             weatherIcon.style.backgroundImage = `url("https:${currentData.current.condition.icon}")`;
+            temperature.innerHTML = `${currentData.current.temp_c}°C / ${currentData.current.temp_f}°F`;
+            feelsLike.innerHTML = `Feels like: ${currentData.current.feelslike_c}°C / ${currentData.current.feelslike_f}°F`;
+            description.innerHTML = currentData.current.condition.text;
+            city.innerHTML = `${currentData.location.name}, ${currentData.location.country}`;
+            date.innerHTML = new Date(currentData.location.localtime).toDateString();
 
             
-            console.log("Current Weather:", currentData);
+            HValue.innerHTML = currentData.current.humidity + "<span>%</span>";
+            WValue.innerHTML = currentData.current.wind_kph + "<span> km/h</span>";
+            CValue.innerHTML = currentData.current.cloud + "<span>%</span>";
+            UVValue.innerHTML = currentData.current.uv;
+            PValue.innerHTML = currentData.current.pressure_mb + "<span> hPa</span>";
 
-            city.innerHTML = `${currentData.location.name}, ${currentData.location.country}`;
-           
+        
             fetch(`${WEATHER_DATA_ENDPOINT}q=${location}`)
                 .then((response) => response.json())
                 .then((forecastData) => {
@@ -48,12 +58,15 @@ function findUserLocation() {
                      alert(forecastData.error.message);
                         return;
                     }
-
+                   
                     console.log("Forecast Data:", forecastData);
-                
+                    
+                    SRValue.innerHTML = forecastData.forecast.forecastday[0].astro.sunrise;
+                    SSValue.innerHTML = forecastData.forecast.forecastday[0].astro.sunset;
+                    
+                   
                 })
                 .catch(err => console.error("Forecast Fetch Error:", err));
         })
         .catch(err => console.error("Current Weather Fetch Error:", err));
 }
-
