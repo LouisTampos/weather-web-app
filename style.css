@@ -17,21 +17,41 @@ body {
 }
 
 .weather-input {
-    width: 40%;
+    width: 25%;
     position: fixed;
     inset: 0;
-    background: #78c1f3;
+    background: #6f7843;
     padding: 1rem 2.5rem;
 }
 
+.weather-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 2rem;
+}
+
 .weatherIcon {
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: contain;
-    display: block;
-    height: 25%;
-    margin: 2rem auto;
-}  
+  width: 100px;
+  height: 100px;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  margin-bottom: 1rem;
+}
+
+.weather-details {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.weather-details hr {
+  width: 100%;
+  border: 0.5px solid #ccc;
+}
 
 .input-group {
     position: relative;
@@ -69,14 +89,29 @@ body {
 }
 
 .weather-output {
-    width: 60%;
+    width: 75%;
     position: fixed;
     inset: 0;
-    margin-left: 40%;
+    margin-left: 25%;
     padding: 2rem;
     background: #f6f6f6;
     overflow: auto;
 }
+
+.weather-input .feelsLike,
+.weather-input .description,
+.weather-input .date,
+.weather-input .city {
+    padding: 10px 0;
+}
+
+.temperature {
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    font-weight: 300;
+}
+
 
 .highlight {
     display: grid;
@@ -92,7 +127,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #78c1f3;
+    background-color: #3f8da4;
     border-radius: 20px;
     padding: 1rem;
 }

@@ -39,9 +39,20 @@ function findUserLocation() {
              weatherIcon.style.backgroundImage = `url("https:${currentData.current.condition.icon}")`;
             temperature.innerHTML = `${currentData.current.temp_c}°C / ${currentData.current.temp_f}°F`;
             feelsLike.innerHTML = `Feels like: ${currentData.current.feelslike_c}°C / ${currentData.current.feelslike_f}°F`;
-            description.innerHTML = currentData.current.condition.text;
+            description.innerHTML = `<i class="fa-solid fa-cloud"></i> ${currentData.current.condition.text}`;
+
+
+            const options = {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+            };
+
             city.innerHTML = `${currentData.location.name}, ${currentData.location.country}`;
-            date.innerHTML = new Date(currentData.location.localtime).toDateString();
+            date.innerHTML = new Date(currentData.location.localtime).toLocaleString("en-US", options);
 
             
             HValue.innerHTML = currentData.current.humidity + "<span>%</span>";
@@ -61,9 +72,8 @@ function findUserLocation() {
                    
                     console.log("Forecast Data:", forecastData);
                     
-                    SRValue.innerHTML = forecastData.forecast.forecastday[0].astro.sunrise;
-                    SSValue.innerHTML = forecastData.forecast.forecastday[0].astro.sunset;
-                    
+                    SRValue.innerHTML =  `Sunrise: ${forecastData.forecast.forecastday[0].astro.sunrise}`;
+                    SSValue.innerHTML = `Sunset: ${forecastData.forecast.forecastday[0].astro.sunset}`;
                    
                 })
                 .catch(err => console.error("Forecast Fetch Error:", err));
