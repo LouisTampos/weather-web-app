@@ -20,7 +20,7 @@ body {
     width: 25%;
     position: fixed;
     inset: 0;
-    background: #6f7843;
+    background: #356a46;
     padding: 1rem 2.5rem;
 }
 
@@ -94,7 +94,7 @@ body {
     inset: 0;
     margin-left: 25%;
     padding: 2rem;
-    background: #f6f6f6;
+    
     overflow: auto;
 }
 
@@ -141,3 +141,15 @@ body {
     display: flex;
     gap: 10px;
 }
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+    z-index: -1;
+    object-fit: cover;
+}
+
